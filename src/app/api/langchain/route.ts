@@ -1,11 +1,10 @@
-// /api/langchain
-// langchain.ts
+import { NextResponse } from "next/server";
 
-import { NextApiRequest, NextApiResponse } from 'next';
-
-export default function POST(req: NextApiRequest, res: NextApiResponse) {
-    console.log("endpoint hit")
-    res.status(200).json({ name: 'Hello!' });
-  }
-
-    
+export async function POST(request: Request) {
+  const message = await request.json()
+  // check for data
+  if (!message) return new NextResponse("No data received")
+  
+  const res = "Hello Keith!"
+  return NextResponse.json(res)
+}

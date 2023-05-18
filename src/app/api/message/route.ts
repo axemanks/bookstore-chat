@@ -40,9 +40,19 @@ export async function POST(req: Request) {
     n: 1,
   }
 
-  const stream = await OpenAIStream(payload)
-  // console.log("stream",stream)
-  return new Response(stream)
-  // console.log("Payload",payload)
+  // wrapped in try block to see if we can get the error back from the stream
+  try {
+    const stream = await OpenAIStream(payload)
+    if (!stream) {
+      throw new Error('Empty response')
+    }
+    return new Response(stream)
+  } catch (error: any) {
+    if (error.code === 'invalid_api_key') {
+      throw new Error('Invalid API key')
+    } else {
+      throw new Error ('Unknown error')
+    }
+  }
   
 }

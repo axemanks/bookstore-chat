@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ingest-og": "ts-node src/scripts/ingest-data.ts",
+    "ingest": "ts-node src/scripts/ingest-data.ts"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.1",
@@ -16,6 +18,8 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
     "clsx": "^1.2.1",
     "dotenv": "^16.0.3",
     "eslint": "8.40.0",
@@ -34,9 +38,11 @@
     "tailwindcss": "3.3.2",
     "toast": "^0.5.4",
     "typescript": "5.0.4",
+    "xml2js": "^0.5.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@types/express": "^4.17.17"
+    "@types/express": "^4.17.17",
+    "@types/xml2js": "^0.4.11"
   }
 }

@@ -9,3 +9,12 @@ to start:
 npm run dev
 To ingest new docs- only needs to be done once
 npm run ingest
+
+
+
+Scrape Schema:
+url: The URL of the book
+title: title of the book
+desc: A description of the book
+price: The price of the book
+availability: The availability of the book (in stock or out of stock)

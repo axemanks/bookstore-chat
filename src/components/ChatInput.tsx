@@ -1,14 +1,19 @@
 'use client'
 
-import { MessagesContext } from '@/context/messages'
-import { cn } from '@/lib/utils'
-import { Message } from '@/lib/validators/message'
+import { MessagesContext } from './../context/messages'
+
+import { cn } from '../utils/cn'
+import { Message } from './../lib/validators/message'
 import { useMutation } from '@tanstack/react-query'
 import { CornerDownLeft, Loader2 } from 'lucide-react'
 import { nanoid } from 'nanoid'
 import { FC, HTMLAttributes, useContext, useRef, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import TextareaAutosize from 'react-textarea-autosize'
+import React from 'react'
+import { apiType } from './../app/dashboard/page'
+
+
 
 interface ChatInputProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -27,7 +32,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
     mutationKey: ['sendMessage'],
     // include message to later use it in onMutate
     mutationFn: async (_message: Message) => {
-      const response = await fetch('/api/message', {
+      const response = await fetch(`/api/${apiType}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

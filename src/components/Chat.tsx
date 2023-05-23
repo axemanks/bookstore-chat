@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from './ui/accordion'
+import React from 'react'
 
 const Chat: FC = () => {
   return (

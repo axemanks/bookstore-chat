@@ -10,7 +10,8 @@ npm run dev
 To ingest new docs- only needs to be done once
 npm run ingest
 
-
+Chroma: db
+docker-compose up -d --build
 
 Scrape Schema:
 url: The URL of the book

@@ -1,3 +1,4 @@
+"use server"
 import { PineconeClient } from '@pinecone-database/pinecone';
 
 if (!process.env.PINECONE_ENVIRONMENT || !process.env.PINECONE_API_KEY) {
@@ -21,3 +22,4 @@ async function initPinecone() {
 }
 
 export const pinecone = await initPinecone();
+

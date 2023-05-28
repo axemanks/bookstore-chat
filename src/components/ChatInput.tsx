@@ -11,28 +11,34 @@ import { FC, HTMLAttributes, useContext, useRef, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import TextareaAutosize from 'react-textarea-autosize'
 import React from 'react'
-import { apiType } from './../app/dashboard/page'
 
 
 
-interface ChatInputProps extends HTMLAttributes<HTMLDivElement> {}
+
+
+interface ChatInputProps extends HTMLAttributes<HTMLDivElement> { }
+// testing
+
 
 const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [input, setInput] = useState<string>('')
+  const url = 'message';
+  
+
   const {
     messages,
     addMessage,
     removeMessage,
     updateMessage,
-    setIsMessageUpdating,
+    setIsMessageUpdating, 
   } = useContext(MessagesContext)
 
   const { mutate: sendMessage, isLoading } = useMutation({
     mutationKey: ['sendMessage'],
     // include message to later use it in onMutate
     mutationFn: async (_message: Message) => {
-      const response = await fetch(`/api/${apiType}`, {
+      const response = await fetch(`/api/${url}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

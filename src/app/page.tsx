@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
 
+
 // this will hold the main site content
 export default function Home() {
   return (    
